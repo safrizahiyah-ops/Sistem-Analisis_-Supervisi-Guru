@@ -1,0 +1,8 @@
+{
+  "name": "Sistem Analisis Pembelajaran Guru",
+  "description": "Sistem analisis perangkat pembelajaran, modul guru, dan video pembelajaran berbasis 6 indikator supervisi akademik dengan AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

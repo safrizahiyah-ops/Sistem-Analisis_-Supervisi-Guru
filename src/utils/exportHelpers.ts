@@ -15,8 +15,8 @@ export function exportToWord(session: SupervisionSession) {
     <style>
       body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.5; color: #1e293b; }
       h1 { font-size: 18pt; color: #065f46; text-align: center; margin-bottom: 4px; }
-      h2 { font-size: 14pt; color: #0f766e; border-bottom: 2px solid #0f766e; padding-bottom: 4px; margin-top: 24px; }
-      h3 { font-size: 12pt; color: #1e293b; margin-top: 14px; }
+      h2 { font-size: 13pt; color: #0f766e; border-bottom: 2px solid #0f766e; padding-bottom: 4px; margin-top: 24px; }
+      h3 { font-size: 11pt; color: #1e293b; margin-top: 14px; }
       table { width: 100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 16px; }
       th, td { border: 1px solid #cbd5e1; padding: 6px 10px; font-size: 10pt; text-align: left; }
       th { background-color: #f1f5f9; color: #0f172a; font-weight: bold; }
@@ -26,14 +26,16 @@ export function exportToWord(session: SupervisionSession) {
       .badge-blue { background-color: #e0f2fe; color: #0369a1; }
       .badge-amber { background-color: #fef3c7; color: #92400e; }
       .badge-red { background-color: #fee2e2; color: #991b1b; }
+      .badge-rose { background-color: #ffe4e6; color: #9f1239; }
       .box { border: 1px solid #e2e8f0; background-color: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 12px; }
+      .arabic { font-family: 'Traditional Arabic', 'Amiri', 'Scheherazade', serif; font-size: 14pt; direction: rtl; text-align: right; color: #064e3b; }
       .signature-table td { border: none; padding: 20px 10px; text-align: center; }
     </style>
   </head>
   <body>
     <h1>LAPORAN ANALISIS PEMBELAJARAN GURU</h1>
     <p class="text-center" style="font-size: 12pt; color: #475569; margin-top: 0;">
-      Supervisi Akademik Berbasis 6 Indikator Terpadu Dokumen & Video
+      Supervisi Akademik Berbasis 6 Indikator Terpadu Dokumen, Video, & Khazanah Tarbiyah Islamiyah
     </p>
     <hr style="border: 0; border-top: 2px solid #065f46; margin-bottom: 20px;" />
 
@@ -100,10 +102,10 @@ export function exportToWord(session: SupervisionSession) {
       <thead>
         <tr>
           <th width="8%">Kode</th>
-          <th width="32%">Indikator</th>
-          <th width="10%" class="text-center">Skor</th>
-          <th width="25%">Bukti & Sumber</th>
-          <th width="25%">Analisis & Rekomendasi</th>
+          <th width="30%">Indikator</th>
+          <th width="8%" class="text-center">Skor</th>
+          <th width="27%">Bukti & Sumber Autentik</th>
+          <th width="27%">Analisis & Rekomendasi</th>
         </tr>
       </thead>
       <tbody>
@@ -122,7 +124,7 @@ export function exportToWord(session: SupervisionSession) {
               </td>
               <td>
                 <b>Sumber:</b> ${ind.sumberBukti || 'Bukti belum ditemukan'}<br/>
-                ${ind.documentEvidence ? `<small><b>Dok:</b> ${ind.documentEvidence.kutipanTeks}</small><br/>` : ''}
+                ${ind.documentEvidence ? `<small><b>Dok:</b> "${ind.documentEvidence.kutipanTeks}"</small><br/>` : ''}
                 ${ind.videoEvidence ? `<small><b>Video (${ind.videoEvidence.timestamp}):</b> ${ind.videoEvidence.transkrip || ind.videoEvidence.aktivitasTerdeteksi}</small>` : ''}
               </td>
               <td>
@@ -135,7 +137,122 @@ export function exportToWord(session: SupervisionSession) {
       </tbody>
     </table>
 
-    <h2>V. RENCANA TINDAK LANJUT (RTL)</h2>
+    <h2>V. ANALISIS POTONGAN ADEGAN VIDEO & IMPLEMENTASI PANCA CINTA (KBC)</h2>
+    <div class="box">
+      <b>Evaluasi Kurikulum Berbasis Cinta (KBC):</b><br/>
+      ${session.pancaCintaSummary?.catatanKurikulumBerbasisCinta || 'Pembelajaran mengintegrasikan nilai Panca Cinta dalam lakon tindakan dan tutur kata santun.'}
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th width="10%">Waktu</th>
+          <th width="15%">Fase Kegiatan</th>
+          <th width="25%">Potongan Adegan Visual yang Dilakonkan</th>
+          <th width="30%">Kalimat / Teks Unsur Cinta yang Diucapkan</th>
+          <th width="20%">Pilar Panca Cinta (KBC) & Makna</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${session.timeline.map((seg) => `
+          <tr>
+            <td class="text-center"><b>${seg.timeRange}</b></td>
+            <td><b>${seg.faseKegiatan}</b><br/><small style="color: #64748b;">Kamera: ${seg.sceneSnapshot?.fokusKamera || '-'}</small></td>
+            <td>
+              <b>${seg.sceneSnapshot?.title || '-'}</b><br/>
+              <small><b>Adegan:</b> ${seg.sceneSnapshot?.adeganKunci || seg.deskripsiAktivitas}</small>
+            </td>
+            <td>
+              ${seg.pancaCintaKbc ? `
+                <div style="background-color: #fff1f2; padding: 4px 6px; border-left: 3px solid #e11d48; margin-bottom: 4px;">
+                  <i style="color: #881337;">"${seg.pancaCintaKbc.kalimatUcapanLakon}"</i>
+                </div>
+                <small><b>Aksi Lakon:</b> ${seg.pancaCintaKbc.deskripsiLakon}</small>
+              ` : `<small style="color: #64748b;">"${seg.transkripExcerpt}"</small>`}
+            </td>
+            <td>
+              ${seg.pancaCintaKbc ? `
+                <span class="badge badge-rose">${seg.pancaCintaKbc.pilar}</span><br/>
+                <small style="color: #065f46;"><b>Makna:</b> ${seg.pancaCintaKbc.maknaPedagogis}</small>
+              ` : '<span style="color: #94a3b8;">-</span>'}
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+
+    ${session.deepLearning ? `
+    <h2>VI. ANALISIS MENDALAM (DEEP LEARNING) & TAKSONOMI BERPIKIR TINGKAT TINGGI</h2>
+    <table>
+      <tr>
+        <th width="35%">Tingkat Berpikir (Taksonomi Bloom)</th>
+        <td>
+          Mengingat & Memahami (C1-C2): <b>${session.deepLearning.bloomLevelDistribution.mengingatMemahami}%</b><br/>
+          Menerapkan (C3): <b>${session.deepLearning.bloomLevelDistribution.menerapkan}%</b><br/>
+          Menganalisis & Mengevaluasi (C4-C5 HOTS): <b>${session.deepLearning.bloomLevelDistribution.menganalisisMengevaluasi}%</b><br/>
+          Mencipta & Berkreasi (C6 HOTS): <b>${session.deepLearning.bloomLevelDistribution.menciptaKreasi}%</b>
+        </td>
+      </tr>
+      <tr>
+        <th>Level & Kedalaman Metakognisi</th>
+        <td><b>${session.deepLearning.levelMetakognisi}</b> (Skor: ${session.deepLearning.skorKedalamanMetakognisi}/100)</td>
+      </tr>
+      <tr>
+        <th>Transfer Belajar ke Kehidupan Nyata</th>
+        <td>${session.deepLearning.transferBelajarKehidupanNyata}</td>
+      </tr>
+      <tr>
+        <th>Student Agency & Kemandirian Belajar</th>
+        <td>${session.deepLearning.studentAgencyDanKemandirian}</td>
+      </tr>
+      <tr>
+        <th>Catatan Analisis Mendalam</th>
+        <td><i>"${session.deepLearning.catatanAnalisisMendalam}"</i></td>
+      </tr>
+    </table>
+    ` : ''}
+
+    ${session.turatsStudy ? `
+    <h2>VII. KAJIAN AYAT AL-QUR'AN, HADITS NABAWI, & KITAB TURATS PENDIDIKAN</h2>
+    
+    <h3>A. Rujukan Ayat-Ayat Al-Qur'an Al-Karim</h3>
+    ${session.turatsStudy.ayatAlQuran.map(a => `
+      <div class="box">
+        <b>${a.suratAyat}</b>
+        <p class="arabic">${a.teksArab}</p>
+        <p><i>${a.terjemah}</i></p>
+        <small><b>Tafsir Kontekstual:</b> ${a.tafsirKontekstual}</small><br/>
+        <small style="color: #065f46;"><b>Kaitan Pedagogis:</b> ${a.kaitanPedagogis}</small>
+      </div>
+    `).join('')}
+
+    <h3>B. Rujukan Hadits Nabawi</h3>
+    ${session.turatsStudy.haditsNabawi.map(h => `
+      <div class="box">
+        <b>${h.perawi}</b>
+        <p class="arabic">${h.matanArab}</p>
+        <p><i>${h.terjemah}</i></p>
+        <small><b>Hikmah Tarbiyah:</b> ${h.hikmahTarbiyah}</small><br/>
+        <small style="color: #065f46;"><b>Kaitan Pedagogis:</b> ${h.kaitanPedagogis}</small>
+      </div>
+    `).join('')}
+
+    <h3>C. Rujukan Khazanah Kitab Turats Klasik</h3>
+    ${session.turatsStudy.kitabTurats.map(k => `
+      <div class="box">
+        <b>${k.judulKitab}</b> - Karya: ${k.pengarang} (${k.babKutipan})
+        <p class="arabic">${k.teksNaskah}</p>
+        <p><small><b>Syarah Pedagogis:</b> ${k.syarahPedagogis}</small></p>
+        <small style="color: #065f46;"><b>Implementasi Supervisi:</b> ${k.kaitanPedagogis}</small>
+      </div>
+    `).join('')}
+
+    <div class="box" style="background-color: #ecfdf5; border-color: #a7f3d0;">
+      <b>Sintesis Tarbiyah Islamiyah:</b><br/>
+      <i>"${session.turatsStudy.kesimpulanTarbiyahIslamiyah}"</i>
+    </div>
+    ` : ''}
+
+    <h2>VIII. RENCANA TINDAK LANJUT (RTL)</h2>
     <table>
       <thead>
         <tr>
@@ -218,114 +335,101 @@ export function exportToExcel(session: SupervisionSession) {
   <Style ss:ID="Header">
    <Font ss:FontName="Calibri" ss:Size="12" ss:Bold="1" ss:Color="#FFFFFF"/>
    <Interior ss:Color="#065F46" ss:Pattern="Solid"/>
-   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="Title">
-   <Font ss:FontName="Calibri" ss:Size="16" ss:Bold="1" ss:Color="#065F46"/>
    <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
   </Style>
+  <Style ss:ID="SubHeader">
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#0F172A"/>
+   <Interior ss:Color="#E2E8F0" ss:Pattern="Solid"/>
+  </Style>
   <Style ss:ID="BoldCell">
-   <Font ss:FontName="Calibri" ss:Bold="1" ss:Color="#1E293B"/>
+   <Font ss:FontName="Calibri" ss:Bold="1" ss:Color="#0F172A"/>
   </Style>
   <Style ss:ID="CenterCell">
    <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
   </Style>
  </Styles>
 
- <!-- SHEET 1: DASHBOARD & REKAPITULASI -->
- <Worksheet ss:Name="Dashboard &amp; Rekapitulasi">
-  <Table ss:DefaultColumnWidth="120">
-   <Column ss:Width="40"/>
-   <Column ss:Width="260"/>
-   <Column ss:Width="100"/>
-   <Column ss:Width="100"/>
-   <Column ss:Width="100"/>
-   <Column ss:Width="120"/>
+ <!-- SHEET 1: REKAPITULASI PROFIL -->
+ <Worksheet ss:Name="Profil Supervisi">
+  <Table ss:DefaultColumnWidth="140">
+   <Column ss:Width="180"/>
+   <Column ss:Width="300"/>
 
-   <Row ss:Height="30">
-    <Cell ss:MergeAcross="5" ss:StyleID="Title"><Data ss:Type="String">SISTEM ANALISIS PEMBELAJARAN GURU - REKAPITULASI SUPERVISI</Data></Cell>
-   </Row>
-   <Row><Cell><Data ss:Type="String"></Data></Cell></Row>
-   
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Nama Guru:</Data></Cell><Cell><Data ss:Type="String">${session.profile.namaGuru}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">NIP / NUPTK:</Data></Cell><Cell><Data ss:Type="String">${session.profile.nipNuptk || '-'}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Madrasah:</Data></Cell><Cell><Data ss:Type="String">${session.profile.madrasahSekolah}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Mata Pelajaran:</Data></Cell><Cell><Data ss:Type="String">${session.profile.mataPelajaran}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Kelas / Fase:</Data></Cell><Cell><Data ss:Type="String">${session.profile.kelas} (${session.profile.fase})</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Supervisor:</Data></Cell><Cell><Data ss:Type="String">${session.profile.namaSupervisor}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Tanggal Supervisi:</Data></Cell><Cell><Data ss:Type="String">${session.profile.tanggalSupervisi}</Data></Cell></Row>
-   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Nilai Keseluruhan:</Data></Cell><Cell ss:StyleID="BoldCell"><Data ss:Type="String">${overallScore}%</Data></Cell></Row>
-   
-   <Row><Cell><Data ss:Type="String"></Data></Cell></Row>
    <Row ss:Height="25">
-    <Cell ss:StyleID="Header"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Komponen Supervisi</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Skor Diperoleh</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Skor Maksimal</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Rata-rata</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Keterpenuhan (%)</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="Header">
+     <Data ss:Type="String">LAPORAN SUPERVISI PEMBELAJARAN GURU</Data>
+    </Cell>
    </Row>
-   ${componentSummaries.map((c, i) => `
+   <Row><Cell><Data ss:Type="String"></Data></Cell></Row>
+
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Nama Guru</Data></Cell><Cell><Data ss:Type="String">${session.profile.namaGuru}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">NIP / NUPTK</Data></Cell><Cell><Data ss:Type="String">${session.profile.nipNuptk || '-'}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Madrasah / Sekolah</Data></Cell><Cell><Data ss:Type="String">${session.profile.madrasahSekolah}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Mata Pelajaran</Data></Cell><Cell><Data ss:Type="String">${session.profile.mataPelajaran}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Kelas / Fase</Data></Cell><Cell><Data ss:Type="String">${session.profile.kelas} (${session.profile.fase})</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Tahun Pelajaran</Data></Cell><Cell><Data ss:Type="String">${session.profile.tahunPelajaran} Semester ${session.profile.semester}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Supervisor</Data></Cell><Cell><Data ss:Type="String">${session.profile.namaSupervisor}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Tanggal Supervisi</Data></Cell><Cell><Data ss:Type="String">${session.profile.tanggalSupervisi}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Nilai Akhir</Data></Cell><Cell ss:StyleID="BoldCell"><Data ss:Type="String">${overallScore}%</Data></Cell></Row>
+   
+   <Row><Cell><Data ss:Type="String"></Data></Cell></Row>
+   <Row ss:Height="22">
+    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">NILAI PER 6 KOMPONEN</Data></Cell>
+   </Row>
+   ${componentSummaries.map(c => `
    <Row>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="Number">${i + 1}</Data></Cell>
     <Cell ss:StyleID="BoldCell"><Data ss:Type="String">${c.nama}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="Number">${c.totalSkorDiperoleh}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="Number">${c.totalSkorMaksimal}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="Number">${c.skorRataRata}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="Number">${c.persentase}</Data></Cell>
+    <Cell><Data ss:Type="String">${c.totalSkorDiperoleh} / ${c.totalSkorMaksimal} (${c.persentase}%)</Data></Cell>
    </Row>
    `).join('')}
   </Table>
  </Worksheet>
 
- <!-- SHEET 2: 36 INDIKATOR -->
+ <!-- SHEET 2: MATRIKS 36 INDIKATOR -->
  <Worksheet ss:Name="36 Indikator Supervisi">
-  <Table ss:DefaultColumnWidth="140">
+  <Table ss:DefaultColumnWidth="120">
    <Column ss:Width="50"/>
    <Column ss:Width="160"/>
+   <Column ss:Width="250"/>
+   <Column ss:Width="60"/>
+   <Column ss:Width="100"/>
    <Column ss:Width="260"/>
-   <Column ss:Width="70"/>
-   <Column ss:Width="110"/>
-   <Column ss:Width="200"/>
-   <Column ss:Width="240"/>
-   <Column ss:Width="200"/>
+   <Column ss:Width="260"/>
 
    <Row ss:Height="25">
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Kode</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">No</Data></Cell>
     <Cell ss:StyleID="Header"><Data ss:Type="String">Komponen</Data></Cell>
     <Cell ss:StyleID="Header"><Data ss:Type="String">Indikator</Data></Cell>
     <Cell ss:StyleID="Header"><Data ss:Type="String">Skor</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Status</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Sumber Bukti</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Alasan Pemberian Skor</Data></Cell>
-    <Cell ss:StyleID="Header"><Data ss:Type="String">Rekomendasi Perbaikan</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Keterpenuhan</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Sumber &amp; Bukti</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Alasan &amp; Rekomendasi</Data></Cell>
    </Row>
-   ${session.indicators.map(ind => {
+   ${session.indicators.map((ind) => {
      const score = ind.diverifikasiSupervisor && ind.skorSupervisor !== undefined ? ind.skorSupervisor : ind.skorAi;
      return `
-   <Row>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${ind.id}</Data></Cell>
-    <Cell><Data ss:Type="String">Komponen ${ind.componentId}</Data></Cell>
-    <Cell><Data ss:Type="String">${ind.namaIndikator}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${score}</Data></Cell>
-    <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${ind.statusKeterpenuhan}</Data></Cell>
-    <Cell><Data ss:Type="String">${ind.sumberBukti || 'Bukti belum ditemukan'}</Data></Cell>
-    <Cell><Data ss:Type="String">${ind.alasanSkor}</Data></Cell>
-    <Cell><Data ss:Type="String">${ind.rekomendasi?.tindakanDisarankan || '-'}</Data></Cell>
-   </Row>
+     <Row>
+      <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${ind.id}</Data></Cell>
+      <Cell><Data ss:Type="String">Komponen ${ind.componentId}</Data></Cell>
+      <Cell ss:StyleID="BoldCell"><Data ss:Type="String">${ind.namaIndikator}</Data></Cell>
+      <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${score}</Data></Cell>
+      <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${ind.statusKeterpenuhan}</Data></Cell>
+      <Cell><Data ss:Type="String">${ind.sumberBukti} ${ind.documentEvidence ? `(Dok: ${ind.documentEvidence.kutipanTeks})` : ''} ${ind.videoEvidence ? `(Video: ${ind.videoEvidence.timestamp} - ${ind.videoEvidence.transkrip})` : ''}</Data></Cell>
+      <Cell><Data ss:Type="String">${ind.alasanSkor} - Saran: ${ind.rekomendasi ? ind.rekomendasi.tindakanDisarankan : '-'}</Data></Cell>
+     </Row>
      `;
    }).join('')}
   </Table>
  </Worksheet>
 
  <!-- SHEET 3: RENCANA TINDAK LANJUT -->
- <Worksheet ss:Name="Rencana Tindak Lanjut (RTL)">
-  <Table ss:DefaultColumnWidth="150">
+ <Worksheet ss:Name="RTL Tindak Lanjut">
+  <Table ss:DefaultColumnWidth="140">
    <Column ss:Width="80"/>
-   <Column ss:Width="200"/>
-   <Column ss:Width="220"/>
-   <Column ss:Width="240"/>
    <Column ss:Width="160"/>
+   <Column ss:Width="200"/>
+   <Column ss:Width="250"/>
+   <Column ss:Width="180"/>
    <Column ss:Width="120"/>
    <Column ss:Width="100"/>
 
@@ -351,6 +455,63 @@ export function exportToExcel(session: SupervisionSession) {
    `).join('')}
   </Table>
  </Worksheet>
+
+ <!-- SHEET 4: PANCA CINTA & POTONGAN VIDEO -->
+ <Worksheet ss:Name="Panca Cinta &amp; Video">
+  <Table ss:DefaultColumnWidth="160">
+   <Column ss:Width="90"/>
+   <Column ss:Width="140"/>
+   <Column ss:Width="240"/>
+   <Column ss:Width="260"/>
+   <Column ss:Width="180"/>
+   <Column ss:Width="200"/>
+
+   <Row ss:Height="25">
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Waktu</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Fase Kegiatan</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Potongan Adegan Visual yang Dilakonkan</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Kalimat / Teks Unsur Cinta yang Diucapkan</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Pilar Panca Cinta (KBC)</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">Makna Nilai Cinta</Data></Cell>
+   </Row>
+   ${session.timeline.map(seg => `
+   <Row>
+    <Cell ss:StyleID="CenterCell"><Data ss:Type="String">${seg.timeRange}</Data></Cell>
+    <Cell ss:StyleID="BoldCell"><Data ss:Type="String">${seg.faseKegiatan}</Data></Cell>
+    <Cell><Data ss:Type="String">${seg.sceneSnapshot?.adeganKunci || seg.deskripsiAktivitas}</Data></Cell>
+    <Cell><Data ss:Type="String">${seg.pancaCintaKbc?.kalimatUcapanLakon || seg.transkripExcerpt}</Data></Cell>
+    <Cell ss:StyleID="BoldCell"><Data ss:Type="String">${seg.pancaCintaKbc?.pilar || '-'}</Data></Cell>
+    <Cell><Data ss:Type="String">${seg.pancaCintaKbc?.maknaPedagogis || '-'}</Data></Cell>
+   </Row>
+   `).join('')}
+  </Table>
+ </Worksheet>
+
+ <!-- SHEET 5: DEEP LEARNING & TURATS -->
+ <Worksheet ss:Name="Deep Learning &amp; Turats">
+  <Table ss:DefaultColumnWidth="180">
+   <Column ss:Width="200"/>
+   <Column ss:Width="380"/>
+
+   <Row ss:Height="25">
+    <Cell ss:MergeAcross="1" ss:StyleID="Header"><Data ss:Type="String">ANALISIS MENDALAM &amp; KAJIAN TURATS</Data></Cell>
+   </Row>
+   ${session.deepLearning ? `
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Taksonomi Bloom C1-C2</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.bloomLevelDistribution.mengingatMemahami}% (Mengingat/Memahami)</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Taksonomi Bloom C3</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.bloomLevelDistribution.menerapkan}% (Menerapkan)</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Taksonomi Bloom C4-C5 (HOTS)</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.bloomLevelDistribution.menganalisisMengevaluasi}% (Menganalisis/Mengevaluasi)</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Taksonomi Bloom C6 (HOTS)</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.bloomLevelDistribution.menciptaKreasi}% (Mencipta/Kreasi)</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Kedalaman Metakognisi</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.levelMetakognisi} (Skor: ${session.deepLearning.skorKedalamanMetakognisi}/100)</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Transfer ke Masalah Nyata</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.transferBelajarKehidupanNyata}</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Student Agency / Otonomi</Data></Cell><Cell><Data ss:Type="String">${session.deepLearning.studentAgencyDanKemandirian}</Data></Cell></Row>
+   ` : ''}
+   ${session.turatsStudy ? `
+   <Row><Cell><Data ss:Type="String"></Data></Cell></Row>
+   <Row ss:Height="20"><Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SINTESIS KAJIAN TURATS &amp; TARBIYAH</Data></Cell></Row>
+   <Row><Cell ss:StyleID="BoldCell"><Data ss:Type="String">Kesimpulan Tarbiyah</Data></Cell><Cell><Data ss:Type="String">${session.turatsStudy.kesimpulanTarbiyahIslamiyah}</Data></Cell></Row>
+   ` : ''}
+  </Table>
+ </Worksheet>
 </Workbook>`;
 
   const blob = new Blob([excelXml], {
@@ -360,6 +521,22 @@ export function exportToExcel(session: SupervisionSession) {
   const link = document.createElement('a');
   link.href = url;
   link.download = `Data_Supervisi_${session.profile.namaGuru.replace(/[^a-zA-Z0-9]/g, '_')}.xls`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * Exports complete supervision session as formatted JSON file
+ */
+export function exportToJson(session: SupervisionSession) {
+  const jsonStr = JSON.stringify(session, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `Cadangan_Supervisi_${session.profile.namaGuru.replace(/[^a-zA-Z0-9]/g, '_')}_${session.profile.tanggalSupervisi}.json`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

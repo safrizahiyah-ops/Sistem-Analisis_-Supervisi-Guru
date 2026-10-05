@@ -13,7 +13,10 @@ import {
   GitCompare, 
   Settings,
   ChevronRight,
-  ShieldCheck
+  ShieldCheck,
+  Brain,
+  Scroll,
+  Heart
 } from 'lucide-react';
 
 export type NavigationTab = 
@@ -21,6 +24,8 @@ export type NavigationTab =
   | 'DATA_GURU'
   | 'UPLOAD'
   | 'VIDEO_ANALISIS'
+  | 'DEEP_LEARNING'
+  | 'TURATS'
   | 'INDIKATOR'
   | 'EVIDENCE'
   | 'REKOMENDASI'
@@ -49,15 +54,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'DASHBOARD', label: '1. Dashboard Utama', icon: LayoutDashboard },
     { id: 'DATA_GURU', label: '2. Data Guru & Supervisi', icon: User },
     { id: 'UPLOAD', label: '3. Upload Dokumen & Video', icon: UploadCloud },
-    { id: 'VIDEO_ANALISIS', label: '4. Analisis & Timeline Video', icon: Video, badge: '40 Mnt' },
-    { id: 'INDIKATOR', label: '5. 36 Indikator Supervisi', icon: ListChecks, badge: '36' },
-    { id: 'EVIDENCE', label: '6. Evidence & Penelusuran Bukti', icon: Quote },
-    { id: 'REKOMENDASI', label: '7. Rekomendasi Perbaikan', icon: Lightbulb },
-    { id: 'TINDAK_LANJUT', label: '8. Rencana Tindak Lanjut (RTL)', icon: ClipboardList },
-    { id: 'LAPORAN', label: '9. Laporan Resmi & Cetak', icon: FileText, badge: 'Cetak' },
-    { id: 'AI_ASSISTANT', label: '10. Asisten AI Supervisor', icon: Bot, badge: 'AI' },
-    { id: 'PERBANDINGAN', label: '11. Perbandingan Dokumen-Video', icon: GitCompare },
-    { id: 'PENGATURAN', label: '12. Pengaturan & Hak Akses', icon: Settings },
+    { id: 'VIDEO_ANALISIS', label: '4. Video & Panca Cinta (KBC)', icon: Video, badge: '40 Mnt' },
+    { id: 'DEEP_LEARNING', label: '5. Analisis Deep Learning', icon: Brain, badge: 'HOTS' },
+    { id: 'TURATS', label: '6. Kajian Ayat, Hadits & Turats', icon: Scroll, badge: 'Khazanah' },
+    { id: 'INDIKATOR', label: '7. 36 Indikator Supervisi', icon: ListChecks, badge: '36' },
+    { id: 'EVIDENCE', label: '8. Evidence & Penelusuran Bukti', icon: Quote },
+    { id: 'REKOMENDASI', label: '9. Rekomendasi Perbaikan', icon: Lightbulb },
+    { id: 'TINDAK_LANJUT', label: '10. Rencana Tindak Lanjut (RTL)', icon: ClipboardList },
+    { id: 'LAPORAN', label: '11. Laporan, Arsip & Cetak', icon: FileText, badge: 'Arsip' },
+    { id: 'AI_ASSISTANT', label: '12. Asisten AI Supervisor', icon: Bot, badge: 'AI' },
+    { id: 'PERBANDINGAN', label: '13. Perbandingan Dokumen-Video', icon: GitCompare },
+    { id: 'PENGATURAN', label: '14. Pengaturan & Hak Akses', icon: Settings },
   ];
 
   return (

@@ -1656,10 +1656,26 @@ export const SAMPLE_SESSION: SupervisionSession = {
       endSeconds: 200,
       faseKegiatan: 'Pembukaan',
       deskripsiAktivitas: 'Salam Islami, pembacaan doa bersama, cek kehadiran, dan pengecekan kerapian seragam laboratorium.',
-      transkripExcerpt: 'Guru: "Assalamu\'alaikum wr. wb. Sebelum memulai kajian ekosistem ciptaan Allah, mari kita baca basmalah bersama."',
+      transkripExcerpt: 'Guru: "Assalamu\'alaikum wr. wb. Sebelum memulai kajian ekosistem ciptaan Allah, mari kita baca basmalah dan doa agar belajar kita bernilai ibadah cinta kepada-Nya."',
       indikatorTerkait: ['1.1', '1.6', '4.6'],
       skorSegmen: 4,
-      alasanAnalisis: 'Suasana pembukaan sangat tenang, bernuansa akhlak islami, dan tata tertib lab ditegakkan sejak menit awal.'
+      alasanAnalisis: 'Suasana pembukaan sangat tenang, bernuansa adab islami, dan tata tertib lab ditegakkan sejak menit awal.',
+      sceneSnapshot: {
+        title: 'Adegan 1: Adab Pembukaan & Doa Berkah Pembuka Majelis',
+        setting: 'Laboratorium Biologi Terbuka MAN 1 Insan Cendekia',
+        fokusKamera: 'Medium Close-up guru di mimbar kelas, panning lembut ke santri yang menundukkan kepala berdoa khusyuk',
+        adeganKunci: 'Guru berdiri tegap dengan senyum hangat menyapa 32 santri, menengadahkan tangan memimpin doa iftitah, siswa merapikan jas lab putih',
+        dialogKunci: 'Guru: "Assalamu\'alaikum warahmatullah. Mari kita buka kajian tadabbur alam hari ini dengan basmalah dan doa agar ilmu kita menjadi lentera cinta kebaikan..."',
+        karakterTerlibat: 'Ibu Nurul Hidayati & Seluruh Santri Kelas X',
+        thumbnailTheme: 'emerald'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Allah dan Rasul',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Guru: "Anak-anakku yang dicintai Allah, setiap hembusan nafas dan tetesan air yang kita pelajari hari ini adalah ayat kauniyah kebesaran Sang Khaliq."',
+        deskripsiLakon: 'Guru memimpin pembacaan Surah Al-Fatihah dengan suara teduh dan menyapa santri satu per satu dengan pandangan penuh welas asih (mahabbah).',
+        maknaPedagogis: 'Pilar 1 (Cinta Allah & Rasul): Menautkan niat menuntut ilmu sains dengan dimensi spiritual ketundukan dan rasa syukur mendalam kepada Allah SWT.'
+      }
     },
     {
       id: 't-2',
@@ -1668,10 +1684,26 @@ export const SAMPLE_SESSION: SupervisionSession = {
       endSeconds: 520,
       faseKegiatan: 'Apersepsi',
       deskripsiAktivitas: 'Apersepsi berbasis video viral kondisi air kolam asrama yang berbusa dan kuis diagnostik kilat 3 soal.',
-      transkripExcerpt: 'Guru: "Siapa yang kemarin melihat kolam asrama berbusa? Apa kaitan busa tersebut dengan deterjen santri?"',
+      transkripExcerpt: 'Guru: "Siapa yang kemarin melihat kolam asrama berbusa? Apakah tega kita membiarkan ikan-ikan ciptaan Allah sesak nafas karena air wudhu tercemar deterjen kita?"',
       indikatorTerkait: ['1.2', '1.4', '6.1'],
       skorSegmen: 4,
-      alasanAnalisis: 'Kontekstualisasi sangat hidup dan langsung memancing rasa ingin tahu peserta didik.'
+      alasanAnalisis: 'Kontekstualisasi sangat hidup dan langsung memancing rasa empati lingkungan peserta didik.',
+      sceneSnapshot: {
+        title: 'Adegan 2: Apersepsi Empati & Investigasi Kolam Asrama',
+        setting: 'Area Depan Layar Proyektor Kelas & Sampel Air Kolam',
+        fokusKamera: 'Over-the-shoulder shot menampilkan proyektor video kolam keruh, beralih ke ekspresi prihatin santri',
+        adeganKunci: 'Guru menunjukkan botol sampel air kolam yang keruh kehijauan, memancing empati santri terhadap kelangsungan hidup ikan asrama',
+        dialogKunci: 'Siswa Rayhan: "Kasihan ikannya Bu, kemarin ikan masnya banyak yang mengambang di permukaan cari oksigen."',
+        karakterTerlibat: 'Guru, Santri Rayhan, & Santri Meja 1-2',
+        thumbnailTheme: 'cyan'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Sesama & Lingkungan',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Guru: "Mencintai lingkungan madrasah dan makhluk hidup di sekitar kita adalah bukti konkrit cinta kita kepada Sang Pencipta. Kita tidak boleh egois membuang busa sabun sembarangan."',
+        deskripsiLakon: 'Siswa saling mengangguk prihatin dan menunjukkan komitmen merawat ekosistem kolam ikan madrasah.',
+        maknaPedagogis: 'Pilar 4 (Cinta Sesama & Lingkungan Hidup): Menumbuhkan kepedulian ekologis (ecoliteracy) dan empati kasih sayang terhadap sesama ciptaan (rahmatan lil alamin).'
+      }
     },
     {
       id: 't-3',
@@ -1680,10 +1712,26 @@ export const SAMPLE_SESSION: SupervisionSession = {
       endSeconds: 860,
       faseKegiatan: 'Penyampaian Tujuan',
       deskripsiAktivitas: 'Penyampaian tujuan pembelajaran, pengaitan dengan dalil QS. Ar-Rum: 41, serta penjelasan prosedur eksperimen sains.',
-      transkripExcerpt: 'Guru: "Kita hari ini akan menguji 3 parameter: keasaman pH, populasi plankton, dan kelayakan biofilter."',
+      transkripExcerpt: 'Guru: "Kita hari ini akan menguji 3 parameter: keasaman pH, populasi mikroalga, dan merancang biofilter ramah lingkungan dengan semangat cinta ilmu penyelamat bumi."',
       indikatorTerkait: ['1.1', '1.3', '1.6', '2.4'],
       skorSegmen: 4,
-      alasanAnalisis: 'Tujuan jelas, dalil penguat karakter terintegrasi alami, dan pertanyaan HOTS mulai dimunculkan.'
+      alasanAnalisis: 'Tujuan jelas, dalil penguat karakter terintegrasi alami, dan pertanyaan HOTS mulai dimunculkan.',
+      sceneSnapshot: {
+        title: 'Adegan 3: Integrasi Dalil Tadabbur & Kontrak Belajar Inkuiri',
+        setting: 'Papan Tulis Laboratorium & Slide Presentasi Digital',
+        fokusKamera: 'Wide shot menampilkan slide QS. Ar-Rum ayat 41 dengan kaligrafi estetik berdampingan dengan skema daur biogeokimia',
+        adeganKunci: 'Guru menggarisbawahi frasa \'bima kasabat aidinnas\' (akibat perbuatan tangan manusia) dan mengaitkannya dengan tanggung jawab saintis muslim',
+        dialogKunci: 'Guru: "Kerusakan bumi terjadi karena hilangnya rasa cinta dan tanggung jawab. Sains hadir sebagai instrumen cinta untuk memulihkan bumi."',
+        karakterTerlibat: 'Guru & Seluruh Tim Inkuiri',
+        thumbnailTheme: 'teal'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Ilmu',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Guru: "Jadikan setiap data pH dan preparat mikroskop yang kalian catat sebagai amanah kebenaran ilmiah, karena ilmu adalah cahaya pemandu peradaban."',
+        deskripsiLakon: 'Santri antusias mencatat 3 tujuan pembelajaran di lembar jurnal riset sains masing-masing dengan gairah intelektual tinggi.',
+        maknaPedagogis: 'Pilar 2 (Cinta Ilmu Pengetahuan): Mengokohkan etos riset ilmiah sebagai ikhtiar pencarian kebenaran berlandaskan kejujuran dan dedikasi intelektual.'
+      }
     },
     {
       id: 't-4',
@@ -1692,10 +1740,26 @@ export const SAMPLE_SESSION: SupervisionSession = {
       endSeconds: 1510,
       faseKegiatan: 'Diskusi Kelompok',
       deskripsiAktivitas: 'Praktikum inkuiri aktif di meja laboratorium: pembuatan preparat air kolam, pengamatan mikroskop digital Wi-Fi, dan diferensiasi tugas.',
-      transkripExcerpt: 'Siswa: "Bu guru, di preparat saya ada koloni Volvox bergerak memutar! Coba lihat di monitor tablet."',
+      transkripExcerpt: 'Siswa: "Subhanallah Bu guru, di layar tablet terlihat koloni Volvox berputar indah sekali! Zahra, sini gantian lihat fokusnya."',
       indikatorTerkait: ['2.1', '2.2', '3.1', '3.3', '4.1', '4.4', '4.5', '6.3'],
       skorSegmen: 4,
-      alasanAnalisis: 'Puncak aktivitas pembelajaran aktif dan inovatif, interaksi siswa-siswa sangat kaya, guru memfasilitasi keliling meja.'
+      alasanAnalisis: 'Puncak aktivitas pembelajaran aktif dan inovatif, interaksi siswa-siswa sangat kaya, saling berbagi dengan kasih sayang.',
+      sceneSnapshot: {
+        title: 'Adegan 4: Inkuiri Kolaboratif Mikroskop Digital & Saling Bantu',
+        setting: 'Meja Praktikum Kelompok 1, 2, 3, 4, 5 Laboratorium',
+        fokusKamera: 'Close-up layar tablet Android yang memproyeksikan mikroalga Volvox, beralih ke tangan siswa yang saling mengarahkan fokus mikroskop',
+        adeganKunci: 'Santri saling bergantian mengamati lensa okuler dengan sabar, tidak berebut, dan mengajari teman sekelompok yang kesulitan meneteskan metilen biru',
+        dialogKunci: 'Siswa Zahra: "Pelan-pelan tekan pipetnya ya Fatimah, agar cover glass-nya tidak pecah dan gelembung udaranya hilang."',
+        karakterTerlibat: 'Kelompok 1 (Fajar, Zahra, Fatimah, Zaki)',
+        thumbnailTheme: 'emerald'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Diri Sendiri & Keselamatan',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Siswa Fajar: "Ingat pesan Bu Guru, pakai sarung tangan lateks dan jangan sentuh mata saat memegang reagen biuret. Kita harus menjaga keselamatan diri dan kawan."',
+        deskripsiLakon: 'Siswa memeriksa perlengkapan keselamatan lab kawan sebangkunya, memastikan kacamata pelindung dan jas lab terkancing rapi.',
+        maknaPedagogis: 'Pilar 3 (Cinta Diri Sendiri & Keselamatan Jiwa): Membangun kesadaran penjagaan diri (hifdz an-nafs), kehati-hatian, dan keselamatan kerja laboratorium.'
+      }
     },
     {
       id: 't-5',
@@ -1703,11 +1767,27 @@ export const SAMPLE_SESSION: SupervisionSession = {
       startSeconds: 1511,
       endSeconds: 1960,
       faseKegiatan: 'Presentasi Siswa',
-      deskripsiAktivitas: 'Presentasi karya kelompok (desain filter air dan analisis rantai makanan mikroalga) disertai sesi tanya jawab antar kelompok.',
-      transkripExcerpt: 'Juru Bicara Tim 2: "Filtrasi kami menargetkan reduksi partikel koloid lumpur sebelum air dialirkan kembali ke kolam ikan."',
+      deskripsiAktivitas: 'Presentasi karya kelompok (desain filter air dan analisis rantai makanan mikroalga) disertai sesi tanya jawab penuh apresiasi santun.',
+      transkripExcerpt: 'Juru Bicara Tim 2: "Filtrasi kami memanfaatkan arang batok kelapa lokal dan tanaman eceng gondok Nusantara sebagai solusi cinta untuk negeri."',
       indikatorTerkait: ['2.3', '2.6', '3.2', '3.5', '4.2', '6.5'],
       skorSegmen: 4,
-      alasanAnalisis: 'Kemampuan komunikasi siswa terasah baik, presentasi berbasis data empiris sampel laboratorium.'
+      alasanAnalisis: 'Kemampuan komunikasi siswa terasah baik, apresiasi antar santri sangat tinggi tanpa ada ejekan atau kritik menjatuhkan.',
+      sceneSnapshot: {
+        title: 'Adegan 5: Mimbar Gagasan & Apresiasi Persaudaraan Kelas',
+        setting: 'Podium Depan Kelas & Pameran Poster Plano',
+        fokusKamera: 'Medium shot juru bicara perempuan yang sebelumnya pemalu, didampingi seluruh anggota tim di sampingnya dengan senyum bangga',
+        adeganKunci: 'Ketika penyaji sempat terhenti karena gugup, rekan sekelompoknya menepuk pundak memberi semangat, seluruh kelas bertepuk tangan memberi dukungan moril',
+        dialogKunci: 'Guru: "Maa syaa Allah Salma, argumen solusimu sangat jernih. Mari kita beri apresiasi cinta untuk kelompok dua!"',
+        karakterTerlibat: 'Salma (Juru Bicara), Tim 2, & Seluruh Audiens',
+        thumbnailTheme: 'indigo'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Tanah Air & Bangsa',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Siswa Zaki: "Bahan zeolit dan arang batok kelapa ini kekayaan bumi Indonesia. Jika kita optimalkan, madrasah dan desa kita tidak perlu membeli filter impor yang mahal."',
+        deskripsiLakon: 'Siswa memamerkan poster yang memuat peta kekayaan material alam lokal Indonesia sebagai solusi krisis air bersih.',
+        maknaPedagogis: 'Pilar 5 (Cinta Tanah Air & Bangsa): Menumbuhkan patriotisme lingkungan, kemandirian teknologi anak bangsa, dan kecintaan pada sumber daya nusantara.'
+      }
     },
     {
       id: 't-6',
@@ -1716,10 +1796,26 @@ export const SAMPLE_SESSION: SupervisionSession = {
       endSeconds: 2180,
       faseKegiatan: 'Asesmen',
       deskripsiAktivitas: 'Pengumpulan lembar LKPD, penilaian unjuk kerja oleh guru, dan kuis pemahaman konsep akhir di layar proyektor.',
-      transkripExcerpt: 'Guru: "Semua kelompok silakan mengumpulkan lembar observasi dan menyusun kembali alat mikroskop ke posisi awal."',
+      transkripExcerpt: 'Guru: "Kejujuran data dalam asesmen ini adalah mahkota integritas kalian. Berikan penilaian sejujurnya pada lembar asesmen teman sebaya."',
       indikatorTerkait: ['4.4', '6.1', '6.2', '6.3', '6.6'],
       skorSegmen: 3,
-      alasanAnalisis: 'Asesmen berjalan tertib dan terstruktur, umpan balik verbal langsung diberikan kepada kelompok penyaji.'
+      alasanAnalisis: 'Asesmen berjalan tertib dan terstruktur, menjunjung tinggi kejujuran dan saling menghargai capaian teman.',
+      sceneSnapshot: {
+        title: 'Adegan 6: Asesmen Otentik Berbasis Adab Kejujuran Akademik',
+        setting: 'Meja Praktikum Siswa & Meja Guru Pengawas',
+        fokusKamera: 'Tracking shot guru yang menghampiri meja siswa, memeriksa hasil unjuk kerja dengan tatapan membimbing dan senyum tulus',
+        adeganKunci: 'Siswa bertukar lembar asesmen teman sejawat, membaca rubrik dengan seksama, dan menuliskan catatan umpan balik yang membangun',
+        dialogKunci: 'Siswa: "Saya beri skor 4 untuk persiapan preparat kelompok Fajar karena mereka sangat teliti dan tidak menumpahkan air."',
+        karakterTerlibat: 'Guru & Siswa Pemeriksa Sejawat',
+        thumbnailTheme: 'amber'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Ilmu',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Guru: "Nilai sejati asesmen bukan hanya angka di kertas, melainkan kejujuran jiwa kalian saat mengakui proses dan menghargai jerih payah kawan."',
+        deskripsiLakon: 'Siswa mengumpulkan lembar asesmen dengan tertib dan saling mengucapkan terima kasih atas kerja sama tim.',
+        maknaPedagogis: 'Pilar 2 (Cinta Ilmu & Integritas): Menanamkan objektivitas dan kejujuran ilmiah sebagai bagian tak terpisahkan dari cinta pada kebenaran ilmu.'
+      }
     },
     {
       id: 't-7',
@@ -1727,13 +1823,77 @@ export const SAMPLE_SESSION: SupervisionSession = {
       startSeconds: 2181,
       endSeconds: 2400,
       faseKegiatan: 'Refleksi',
-      deskripsiAktivitas: 'Refleksi kilat Mentimeter, pengecekan ketercapaian target belajar, pemberian tugas tindak lanjut proyek, doa penutup.',
-      transkripExcerpt: 'Guru: "Alhamdulillah pembelajaran selesai. Apa hikmah terbesar yang kalian peroleh tentang keteraturan ciptaan Allah hari ini?"',
+      deskripsiAktivitas: 'Refleksi kalbu dan akal, penegasan komitmen menjaga lingkungan madrasah, doa kafaratul majelis.',
+      transkripExcerpt: 'Guru: "Alhamdulillah. Tuliskan di papan Mentimeter, apa wujud cinta kalian untuk merawat kolam madrasah mulai esok hari?"',
       indikatorTerkait: ['5.1', '5.2', '5.5', '1.6'],
       skorSegmen: 3,
-      alasanAnalisis: 'Refleksi berhasil merangkum konsep utama, meskipun waktu agak padat (~3.5 menit).'
+      alasanAnalisis: 'Refleksi menggabungkan evaluasi konsep kognitif dengan ikrar batin menjaga kelestarian alam dan kasih sayang sesama.',
+      sceneSnapshot: {
+        title: 'Adegan 7: Muhasabah Cinta Lingkungan & Doa Penutup Majelis',
+        setting: 'Seluruh Ruang Kelas Bersama Guru di Depan',
+        fokusKamera: 'Wide shot seluruh kelas berdiri melingkar, membaca doa penutup kafaratul majelis dengan khidmat',
+        adeganKunci: 'Layar proyektor menampilkan komitmen cinta lingkungan siswa: \'Hemat air wudhu\', \'Piket kolam ikhlas\', \'Sayangi ciptaan Allah\'',
+        dialogKunci: 'Guru: "Subhanakallahumma wa bihamdika... Semoga cinta yang bersemi di kelas ini menjadi amal jariyah bagi kita semua. Wassalamu\'alaikum warahmatullah."',
+        karakterTerlibat: 'Ibu Nurul Hidayati & Seluruh Santri Kelas X',
+        thumbnailTheme: 'purple'
+      },
+      pancaCintaKbc: {
+        pilar: 'Cinta Allah dan Rasul',
+        terdeteksi: true,
+        kalimatUcapanLakon: 'Santri Serempak: "Alhamdulillahirabbil \'alamin. Kami berjanji merawat ekosistem madrasah dengan penuh cinta lillahi ta\'ala."',
+        deskripsiLakon: 'Siswa bersalaman santun dengan guru dan merapikan ruang lab dengan sukacita tanpa rasa terbebani.',
+        maknaPedagogis: 'Pilar 1 & 4 (Cinta Ilahi & Kelestarian Semesta): Menutup pembelajaran dengan komitmen perbuatan nyata (amal sholeh) berbasis cinta kasih semesta.'
+      }
     }
   ],
+  pancaCintaSummary: {
+    totalTerdeteksi: 7,
+    skorRataRata: 3.86,
+    persentaseImplementasi: 96,
+    catatanKurikulumBerbasisCinta: 'Pembelajaran Biologi ini berhasil mentransformasikan sains menjadi kurikulum berbasis cinta (KBC). Seluruh 5 pilar Panca Cinta terwujud nyata dalam lakon tindakan, ucapan santun guru-siswa, adegan saling tolong di meja praktikum mikroskop, dan kepedulian tulus terhadap ekosistem air kolam madrasah.',
+    pilarStatus: [
+      {
+        pilar: 'Cinta Allah dan Rasul',
+        terwujud: true,
+        frekuensiMuncul: 3,
+        kutipanUnggulan: 'Guru: "Setiap tetes air dan mikroalga yang kita pelajari hari ini adalah ayat kauniyah kebesaran Sang Khaliq."',
+        deskripsiLakon: 'Doa pembuka khusyuk, tadabbur QS. Ar-Rum: 41, dan doa penutup kafaratul majelis penuh penghayatan spiritual.',
+        timestampAdegan: '01:15 & 09:20 & 39:10'
+      },
+      {
+        pilar: 'Cinta Ilmu',
+        terwujud: true,
+        frekuensiMuncul: 4,
+        kutipanUnggulan: 'Guru: "Jadikan setiap data pH dan preparat mikroskop sebagai amanah kebenaran ilmiah, karena ilmu adalah cahaya pemandu peradaban."',
+        deskripsiLakon: 'Gairah inkuiri mikroskop digital, investigasi empiris tanpa putus asa, dan kejujuran asesmen data.',
+        timestampAdegan: '10:45 & 18:20 & 34:10'
+      },
+      {
+        pilar: 'Cinta Diri Sendiri & Keselamatan',
+        terwujud: true,
+        frekuensiMuncul: 2,
+        kutipanUnggulan: 'Siswa: "Pakai sarung tangan lateks dan jangan sentuh mata saat pegang reagen biuret. Kita harus menjaga keselamatan diri dan kawan."',
+        deskripsiLakon: 'Kepatuhan SOP keselamatan kerja lab, saling memeriksa pelindung mata, dan optimisme percaya diri saat mencoba preparat baru.',
+        timestampAdegan: '15:10 & 21:40'
+      },
+      {
+        pilar: 'Cinta Sesama & Lingkungan',
+        terwujud: true,
+        frekuensiMuncul: 5,
+        kutipanUnggulan: 'Guru: "Mencintai lingkungan madrasah dan makhluk hidup di dalamnya adalah bukti konkrit cinta kita kepada Sang Pencipta."',
+        deskripsiLakon: 'Perhatian empati terhadap nasib ikan kolam asrama, berbagi giliran mikroskop dengan sabar, dan merancang biofilter ramah lingkungan.',
+        timestampAdegan: '04:30 & 16:45 & 23:20'
+      },
+      {
+        pilar: 'Cinta Tanah Air & Bangsa',
+        terwujud: true,
+        frekuensiMuncul: 2,
+        kutipanUnggulan: 'Siswa Zaki: "Bahan zeolit dan arang batok kelapa ini kekayaan bumi Indonesia sebagai solusi cinta untuk negeri."',
+        deskripsiLakon: 'Pemanfaatan material lokal nusantara dan komitmen menciptakan kemandirian teknologi penjernih air bagi masyarakat.',
+        timestampAdegan: '24:50 & 29:15'
+      }
+    ]
+  },
   interaction: {
     guruKeSiswa: 28,
     siswaKeGuru: 24,
@@ -1905,6 +2065,102 @@ export const SAMPLE_SESSION: SupervisionSession = {
       penanggungJawab: 'Nurul Hidayati, S.Pd., M.Pd.'
     }
   ],
+  deepLearning: {
+    bloomLevelDistribution: {
+      mengingatMemahami: 15,
+      menerapkan: 25,
+      menganalisisMengevaluasi: 45,
+      menciptaKreasi: 15
+    },
+    skorKedalamanMetakognisi: 88,
+    levelMetakognisi: 'Tinggi (Reflektif-Strategis)',
+    transferBelajarKehidupanNyata: 'Siswa berhasil mentransfer pemahaman siklus materi dan trofik biomassa ke permasalahan riil kolam asrama madrasah dan desain miniatur biofilter mandiri.',
+    studentAgencyDanKemandirian: 'Terdapat otonomi tinggi saat praktikum laboratorium mikroskop (waktu bicara guru hanya 28%), namun alur pemilihan stasiun pos masih perlu diperluas.',
+    catatanAnalisisMendalam: 'Pembelajaran ini secara meyakinkan melampaui level "Surface Learning" (hafalan definisi) menuju "Deep Learning" (pemahaman esensial, transfer kontekstual, pemecahan masalah empiris, dan pembentukan disposisi karakter cinta lingkungan).'
+  },
+  turatsStudy: {
+    kesimpulanTarbiyahIslamiyah: 'Praktik pembelajaran ini selaras dengan ajaran Al-Qur\'an, Sunnah Nabawiyah, dan kaidah kitab turats para ulama salafush-shalih, di mana ilmu sains diposisikan sebagai jembatan tadabbur ayat kauniyah, sedangkan guru bertindak sebagai murabbi yang menuntun dengan kelembutan kasih sayang (rahmah).',
+    ayatAlQuran: [
+      {
+        suratAyat: 'QS. Ar-Rum [30]: 41',
+        teksArab: 'ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ لِيُذِيقَهُم بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ',
+        terjemah: '"Telah tampak kerusakan di darat dan di laut disebabkan karena perbuatan tangan manusia, supaya Allah merasakan kepada mereka sebagian dari (akibat) perbuatan mereka, agar mereka kembali (ke jalan yang benar)."',
+        tafsirKontekstual: 'Ayat ini menjadi dasar teologis konservasi lingkungan; kerusakan ekosistem air kolam madrasah akibat limbah deterjen merupakan cermin kelalaian manusia yang wajib dimitigasi dengan sains dan kesadaran khalifah fil ardh.',
+        kaitanPedagogis: 'Digunakan guru pada menit 08:50 sebagai apersepsi filosofis dan landasan proyek biofilter ramah lingkungan.'
+      },
+      {
+        suratAyat: 'QS. Al-Baqarah [2]: 164',
+        teksArab: 'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ وَالْفُلْكِ الَّتِي تَجْرِي فِي الْبَحْرِ بِمَا يَنفَعُ النَّاسَ وَمَا أَنزَلَ اللَّهُ مِنَ السَّمَاءِ مِن مَّاءٍ فَأَحْيَا بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا... لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ',
+        terjemah: '"Sesungguhnya pada penciptaan langit dan bumi, pergantian malam dan siang, kapal yang berlayar di laut membawa apa yang berguna bagi manusia, dan apa yang Allah turunkan dari langit berupa air, lalu dengan air itu Dia hidupkan bumi sesudah mati (kering)... sungguh (terdapat) tanda-tanda bagi kaum yang mengerti."',
+        tafsirKontekstual: 'Air adalah denyut nadi kehidupan ekologis; meneliti plankton dan kualitas air hakikatnya adalah tadabbur mendalam terhadap cara Allah menghidupkan bumi.',
+        kaitanPedagogis: 'Menguatkan indikator 1.6 (Pengaitan nilai karakter akhlak & tadabbur) dan dimensi Deep Learning konseptual.'
+      },
+      {
+        suratAyat: 'QS. Al-Mujadilah [58]: 11',
+        teksArab: 'يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ',
+        terjemah: '"...Allah akan meninggikan orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu pengetahuan beberapa derajat..."',
+        tafsirKontekstual: 'Iman dan ilmu adalah dwitunggal; ilmu sains lingkungan mengangkat harkat martabat santri sebagai rahmat bagi semesta alam.',
+        kaitanPedagogis: 'Memotivasi siswa pada pilar KBC Cinta Ilmu dan penguatan keterampilan 4C abad 21.'
+      }
+    ],
+    haditsNabawi: [
+      {
+        perawi: 'HR. Abu Dawud No. 3641 & Tirmidzi No. 2682',
+        matanArab: 'مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ، وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا رِضًا لِطَالِبِ الْعِلْمِ',
+        terjemah: '"Barangsiapa menempuh jalan untuk menuntut ilmu, maka Allah mudahkan baginya jalan menuju surga. Sesungguhnya para malaikat membentangkan sayapnya karena ridha kepada penuntut ilmu."',
+        hikmahTarbiyah: 'Setiap lelah santri memfokuskan lensa mikroskop dan mencatat data ilmiah dihitung sebagai ibadah yang diridhai malaikat.',
+        kaitanPedagogis: 'Membangun iklim kelas yang sakral, tertib, dan membangkitkan rasa hormat siswa terhadap instrumen sains.'
+      },
+      {
+        perawi: 'HR. At-Tirmidzi No. 1919 & Ahmad',
+        matanArab: 'لَيْسَ مِنَّا مَنْ لَمْ يَرْحَمْ صَغِيرَنَا وَيُوَقِّرْ كَبِيرَنَا وَيَعْرِفْ لِعَالِمِنَا حَقَّهُ',
+        terjemah: '"Bukan termasuk golongan kami orang yang tidak menyayangi yang lebih muda di antara kami, tidak menghormati yang lebih tua, dan tidak mengerti hak orang yang berilmu."',
+        hikmahTarbiyah: 'Fondasi utama Kurikulum Berbasis Cinta (KBC): Kasih sayang guru kepada siswa (rahmah) berbalas penghormatan tulus (ta\'dzim) siswa kepada guru.',
+        kaitanPedagogis: 'Tercermin nyata pada menit 27:10 ketika guru membesarkan hati santri pemalu dan kelas bertepuk tangan penuh cinta.'
+      },
+      {
+        perawi: 'HR. Ibnu Majah No. 224 & Ahmad',
+        matanArab: 'إِنَّمَا بُعِثْتُ مُعَلِّمًا',
+        terjemah: '"Sesungguhnya aku diutus hanyalah sebagai seorang pengajar (pendidik)."',
+        hikmahTarbiyah: 'Profesi guru adalah risalah kenabian (nubuwah); guru mendidik bukan sekadar mentransfer teks, tetapi menumbuhkan adab dan qalbu.',
+        kaitanPedagogis: 'Menjadi pijakan refleksi diri guru (Komponen 5) dan supervisi transformatif.'
+      }
+    ],
+    kitabTurats: [
+      {
+        judulKitab: 'Ta\'lim al-Muta\'allim Thariq at-Ta\'allum',
+        pengarang: 'Syaikh Burhanuddin az-Zarnuji (Wafat 593 H)',
+        babKutipan: 'Fashl fi an-Niyyah fi Hal at-Ta\'allum wa Fashl fi ash-Shidqi',
+        teksNaskah: 'يَنْبَغِي لِلْمُتَعَلِّمِ أَنْ يَنْوِيَ بِتَعَلُّمِهِ رِضَى اللَّهِ تَعَالَى وَالدَّارَ الْآخِرَةَ وَنَفْيَ الْجَهْلِ عَنْ نَفْسِهِ وَعَنْ سَائِرِ الْجُهَّالِ وَإِحْيَاءَ الدِّينِ',
+        syarahPedagogis: 'Az-Zarnuji menegaskan bahwa niat belajar harus menghilangkan kebodohan dan menghidupkan kemaslahatan masyarakat; pembelajaran sains yang memecahkan masalah kolam madrasah adalah implementasi nyata dari konsep ini.',
+        kaitanPedagogis: 'Mendasari Pembelajaran Bermakna (Komponen 1) dan Panca Cinta Pilar Cinta Ilmu & Lingkungan.'
+      },
+      {
+        judulKitab: 'Adab al-\'Alim wa al-Muta\'allim',
+        pengarang: 'Hadhratusy Syaikh KH. M. Hasyim Asy\'ari (Pendiri Nahdlatul Ulama)',
+        babKutipan: 'Al-Bab ats-Tsani: Adab al-Mu\'allim fi Darsihi wa ma\'a Muta\'allimihi',
+        teksNaskah: 'أَنْ يُعَامِلَ الْمُتَعَلِّمِينَ بِالرِّفْقِ وَاللِّينِ، وَأَنْ يُحِبَّ لَهُمْ مَا يُحِبُّ لِنَفْسِهِ، وَأَنْ يَفْرَحَ بِظُهُورِ الْفَضْلِ وَالنَّجَابَةِ فِيهِمْ',
+        syarahPedagogis: 'Kiai Hasyim Asy\'ari mengajarkan bahwa guru wajib memperlakukan murid dengan kelembutan (ar-rifq wa al-lin), mencintai mereka sebagaimana mencintai dirinya sendiri, dan bergembira saat melihat bakat serta kecerdasan murid berkembang.',
+        kaitanPedagogis: 'Sangat selaras dengan Pembelajaran Berpusat pada Siswa (Komponen 4) dan pilar KBC (Kurikulum Berbasis Cinta).'
+      },
+      {
+        judulKitab: 'Ihya\' \'Ulumiddin (Kitab al-\'Ilm)',
+        pengarang: 'Hujjatul Islam Imam Abu Hamid al-Ghazali (Wafat 505 H)',
+        babKutipan: 'Bayan Waza\'if al-Mu\'allim wa al-Mursyid (Tugas ke-1 & ke-5 Pendidik)',
+        teksNaskah: 'الْوَظِيفَةُ الْأُولَى: الشَّفَقَةُ عَلَى الْمُتَعَلِّمِينَ وَأَنْ يُجْرِيَهُمْ مَجْرَى بَنِيهِ... الْوَظِيفَةُ الْخَامِسَةُ: أَلَّا يُقَبِّحَ فِي نَفْسِ الْمُتَعَلِّمِ شَيْئًا مِنَ الْعُلُومِ الْمَحْمُودَةِ',
+        syarahPedagogis: 'Imam Al-Ghazali mewajibkan guru memiliki rasa kasih sayang (syafaqah) kepada siswa layaknya anak kandung sendiri, serta tidak merendahkan kemampuan murid yang masih dalam tahap awal belajar.',
+        kaitanPedagogis: 'Menjadi rujukan utama indikator 4.6 (Suasana aman dan menghargai kontribusi siswa) serta Asesmen Autentik yang humanis.'
+      },
+      {
+        judulKitab: 'Tadzkirah as-Sami\' wa al-Mutakallim',
+        pengarang: 'Imam Badruddin Ibnu Jama\'ah al-Kinani (Wafat 733 H)',
+        babKutipan: 'Fi Adab al-Mu\'allim ma\'a Thalabatihi fi Halaqah at-Ta\'lim',
+        teksNaskah: 'أَنْ يَفْسَحَ لَهُمْ فِي السُّؤَالِ، وَلَا يَضْجَرَ مِنْ تَكْرَارِهِ، وَيَشْكُرَ لِمَنْ سَأَلَ حُسْنَ سُؤَالِهِ',
+        syarahPedagogis: 'Ibnu Jama\'ah menekankan pentingnya membuka ruang seluas-luasnya bagi murid untuk bertanya tanpa rasa jengkel, dan berterima kasih kepada murid atas pertanyaannya yang kritis.',
+        kaitanPedagogis: 'Sangat cocok dengan indikator 4.2 (Memberi kesempatan siswa bertanya dan berpendapat) serta metode interaktif guru.'
+      }
+    ]
+  },
   overallScore: 89,
   createdAt: '2026-02-18 10:30:00',
   updatedAt: '2026-02-18 11:45:00',

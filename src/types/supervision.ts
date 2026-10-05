@@ -97,6 +97,25 @@ export interface ComponentSummary {
   indikatorPerluPerbaikan: string[];
 }
 
+export type PancaCintaPillar = 
+  | 'Cinta Allah dan Rasul'
+  | 'Cinta Ilmu'
+  | 'Cinta Diri Sendiri & Keselamatan'
+  | 'Cinta Sesama & Lingkungan'
+  | 'Cinta Tanah Air & Bangsa';
+
+export interface PancaCintaEvidence {
+  id: string;
+  pilar: PancaCintaPillar;
+  kalimatUcapan: string; // Teks yang diucapkan guru atau siswa
+  lakonAktivitas: string; // Tindakan/perbuatan yang dilakonkan
+  timestamp: string; // e.g. "01:15 - 02:30"
+  segmenId: string;
+  adeganVisual: string; // Deskripsi visual potongan adegan video
+  skorImplementasi: number; // 1-4
+  analisisSupervisor: string;
+}
+
 export interface VideoTimelineSegment {
   id: string;
   timeRange: string; // e.g. "00:00 - 03:20"
@@ -108,6 +127,24 @@ export interface VideoTimelineSegment {
   indikatorTerkait: string[]; // e.g. ["1.1", "2.1"]
   skorSegmen?: number;
   alasanAnalisis: string;
+  // Potongan Adegan Video & Snapshot
+  sceneSnapshot: {
+    title: string;
+    setting: string;
+    fokusKamera: string;
+    adeganKunci: string;
+    dialogKunci: string;
+    karakterTerlibat: string;
+    thumbnailTheme: 'emerald' | 'cyan' | 'teal' | 'indigo' | 'amber' | 'purple' | 'blue';
+  };
+  // Analisis Panca Cinta / KBC
+  pancaCintaKbc?: {
+    pilar: PancaCintaPillar;
+    terdeteksi: boolean;
+    kalimatUcapanLakon: string; // Kalimat/teks yang diucapkan
+    deskripsiLakon: string; // Tindakan yang dilakonkan di video
+    maknaPedagogis: string; // Makna penanaman nilai cinta
+  };
 }
 
 export interface VideoInteractionAnalysis {
@@ -166,6 +203,81 @@ export interface UploadedFileItem {
   uploadDate: string;
 }
 
+export interface PancaCintaSummary {
+  totalTerdeteksi: number;
+  skorRataRata: number;
+  persentaseImplementasi: number;
+  catatanKurikulumBerbasisCinta: string;
+  pilarStatus: Array<{
+    pilar: PancaCintaPillar;
+    terwujud: boolean;
+    frekuensiMuncul: number;
+    kutipanUnggulan: string;
+    deskripsiLakon: string;
+    timestampAdegan: string;
+  }>;
+}
+
+export interface DeepLearningAnalysis {
+  bloomLevelDistribution: {
+    mengingatMemahami: number; // C1-C2 (%)
+    menerapkan: number; // C3 (%)
+    menganalisisMengevaluasi: number; // C4-C5 (%)
+    menciptaKreasi: number; // C6 (%)
+  };
+  skorKedalamanMetakognisi: number; // 0-100
+  levelMetakognisi: 'Tinggi (Reflektif-Strategis)' | 'Sedang (Prosedural)' | 'Rendah (Hafalan)';
+  transferBelajarKehidupanNyata: string;
+  studentAgencyDanKemandirian: string;
+  catatanAnalisisMendalam: string;
+}
+
+export interface AyatKajianItem {
+  suratAyat: string;
+  teksArab: string;
+  terjemah: string;
+  tafsirKontekstual: string;
+  kaitanPedagogis: string;
+}
+
+export interface HaditsKajianItem {
+  perawi: string;
+  matanArab: string;
+  terjemah: string;
+  hikmahTarbiyah: string;
+  kaitanPedagogis: string;
+}
+
+export interface KitabTuratsKajianItem {
+  judulKitab: string;
+  pengarang: string;
+  babKutipan: string;
+  teksNaskah: string;
+  syarahPedagogis: string;
+  kaitanPedagogis: string;
+}
+
+export interface TuratsStudy {
+  ayatAlQuran: AyatKajianItem[];
+  haditsNabawi: HaditsKajianItem[];
+  kitabTurats: KitabTuratsKajianItem[];
+  kesimpulanTarbiyahIslamiyah: string;
+}
+
+export interface SavedReportItem {
+  id: string;
+  namaGuru: string;
+  mataPelajaran: string;
+  kelas: string;
+  madrasahSekolah: string;
+  tanggalSupervisi: string;
+  jenisSupervisi: SupervisionType;
+  overallScore: number;
+  status: 'Draf' | 'Dianalisis' | 'Terverifikasi' | 'Selesai';
+  timestamp: string;
+  sessionData: SupervisionSession;
+}
+
 export interface SupervisionSession {
   id: string;
   profile: TeacherProfile;
@@ -175,6 +287,9 @@ export interface SupervisionSession {
   interaction: VideoInteractionAnalysis;
   crossAnalysis: CrossAnalysis;
   summary: ExecutiveSummary;
+  pancaCintaSummary?: PancaCintaSummary;
+  deepLearning?: DeepLearningAnalysis;
+  turatsStudy?: TuratsStudy;
   followUpPlans: FollowUpPlanItem[];
   overallScore: number;
   createdAt: string;
